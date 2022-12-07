@@ -11,3 +11,24 @@
   background: url('~@/assets/images/dog2.jpg');
   background-size: 100% 100%;
 }
+
+.border(@topW:1px, @bottomW:2px) {
+  border-top: @topW solid #000;
+  border-bottom: @bottomW solid #000;
+}
+
+.a1 {
+  .border();
+}
+.a2 {
+  .border(3px, 6px);
+  border-bottom: 15px solid #000; // 覆盖混合
+}
+
+.bar_right {
+  :global {
+    .a3 {
+      background-color: yellow;
+    }
+  }
+}

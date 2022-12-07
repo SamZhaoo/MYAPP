@@ -50,6 +50,16 @@ import dog1 from '../assets/images/dog1.jpg'
 background: url('../assets/images/dog2.jpg');
 background: url('~@/assets/images/dog2.jpg');
 ```
+ts不识别非代码资源，引用图片路径时会报错，解决方法是新建*images.d.ts*文件并写入
+```
+declare module '*.svg'
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.gif'
+declare module '*.bmp'
+declare module '*.tiff'
+```
 
 
 
