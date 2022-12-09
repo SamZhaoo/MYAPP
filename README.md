@@ -60,6 +60,34 @@ declare module '*.gif'
 declare module '*.bmp'
 declare module '*.tiff'
 ```
+### 样式模块化
+使用全局样式直接在`global.less`中定义
+```
+<div className="myLink">咔咔咔咔咔咔扩扩</div>
+```
+使用less变量
+```
+.border(@topW:1px, @bottomW:2px) {
+  border-top: @topW solid #000;
+  border-bottom: @bottomW solid #000;
+}
 
-
+.a1 {
+  .border();
+}
+.a2 {
+  .border(3px, 6px);
+  border-bottom: 15px solid #000; // 覆盖混合
+}
+```
+局部样式改写全局样式,加`:global`标识
+```
+.bar_right {
+  :global {
+    .a3 {
+      background-color: yellow;
+    }
+  }
+}
+```
 

@@ -19,14 +19,18 @@ export default function IndexPage() {
         />
         <div className={styles.dog2}></div> 
       */}
-      {/* 使用全局样式与局部样式的变量*/}
-      <div className="myLink">咔咔咔咔咔咔扩扩</div>{' '}
-      {/* global.less设置全局样式与全局变量 */}
-      <div className={styles.a1}>test</div>
-      <div className={styles.a2}>test</div>
-      <div className={styles.bar_right}>
-        <div className={`a3`}>test</div>
-      </div>
+      {/* 样式模块化 
+        global.less设置全局样式
+        <div className="myLink">咔咔咔咔咔咔扩扩</div>
+        
+        使用less变量
+        <div className={styles.a1}>test</div>
+        <div className={styles.a2}>test</div>
+        局部样式设置为全局样式
+        <div className={styles.bar_right}>
+          <div className={`a3`}>test</div>
+        </div>
+      */}
     </div>
   );
 }
