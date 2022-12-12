@@ -90,4 +90,6 @@ declare module '*.tiff'
   }
 }
 ```
-
+### Hooks与函数式编写组件 
+理解并使用`useState`,`useEffect`,`useContext`
+**useState**是定义和修改变量，**useEffect**监听变量的变化，**useContext**作为父子组件的通信
