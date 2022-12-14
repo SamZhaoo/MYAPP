@@ -91,10 +91,16 @@ declare module '*.tiff'
 }
 ```
 ### Hooks与函数式编写组件 
-理解并使用`useState`,`useEffect`,`useContext`
-**useState**定义和修改变量；
-**useEffect**监听变量的变化，如果useState的变量改变后，执行useEffect的依赖钩子；
-**useContext**作为父子组件的通信，声明`createContext`react组件，在父组件中将传递的值与方法绑定在`createContext`组件`value`属性上，子组件用`useContext`解构赋值即可完成通信
-**useMemo**性能优化，避免每次渲染都进行计算，仅会在某个依赖项改变时才重新计算值,类似vue的computed
-**memo**react高阶组件，与useMemo类似，解决只要父组件的状态更新，无论有没有对自组件进行操作，子组件都会进行更新的问题
-**useCallback**性能优化，区别在于useMemo返回的是函数运行的结果，useCallback返回的是函数
+理解并使用`useState`,`useEffect`,`useContext` 
+
+**useState**定义和修改变量； 
+
+**useEffect**监听变量的变化，如果useState的变量改变后，执行useEffect的依赖钩子； 
+
+**useContext**作为父子组件的通信，声明`createContext`react组件，在父组件中将传递的值与方法绑定在`createContext`组件`value`属性上，子组件用`useContext`解构赋值即可完成通信 
+
+**useMemo**性能优化，避免每次渲染都进行计算，仅会在某个依赖项改变时才重新计算值,类似vue的computed 
+
+**memo**react高阶组件，与useMemo类似，解决只要父组件的状态更新，无论有没有对自组件进行操作，子组件都会进行更新的问题 
+
+**useCallback**性能优化，区别在于useMemo返回的是函数运行的结果，useCallback返回的是函数 

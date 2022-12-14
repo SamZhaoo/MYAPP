@@ -5,4 +5,5 @@ export default [
   { path: '/useMemo', component: '@/pages/useMemo/index' },
   { path: '/memo', component: '@/pages/memo/index' },
   { path: '/useCallback', component: '@/pages/useCallback/index' },
+  { path: '/useRef', component: '@/pages/useRef/index' },
 ];
