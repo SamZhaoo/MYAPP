@@ -1,19 +1,17 @@
-import { useState, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import Child from './child';
-export default function indexPage() {
+const indexPage = () => {
   const [count, setCount] = useState(0);
   const [value, setValue] = useState('');
 
-  const getNumberMemo = useMemo(() => {
-    console.log('xxx');
-    return 111;
+  const updateCount = useCallback(() => {
+    console.log('indexPage has refresh');
   }, [count]);
   return (
     <>
       <h1>index.page</h1>
-      <div>count:{count}</div>
-      <div>value:{value}</div>
-      <div>number:{getNumberMemo}</div>
+      <div>{count}</div>
+      <div>{value}</div>
       <button
         onClick={() => {
           setCount(count + 1);
@@ -28,7 +26,8 @@ export default function indexPage() {
           setValue(e.target.value);
         }}
       />
-      <Child count={count}></Child>
+      <Child updateCount={updateCount}></Child>
     </>
   );
-}
+};
+export default indexPage;

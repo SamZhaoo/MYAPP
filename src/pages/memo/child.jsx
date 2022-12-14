@@ -1,13 +1,12 @@
 import { memo } from 'react';
-const child = ({ count }) => {
+const child = () => {
   const getNumber = () => {
-    console.log('xxx');
+    console.log('childComponent');
   };
   return (
     <>
       <h1>child.page</h1>
       <div>{getNumber()}</div>
-      <div>{count}</div>
     </>
   );
 };
