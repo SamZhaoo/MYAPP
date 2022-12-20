@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import Child from './child';
 export default function indexPage() {
   const [count, setCount] = useState(0);
   const [value, setValue] = useState('');
@@ -28,7 +27,6 @@ export default function indexPage() {
           setValue(e.target.value);
         }}
       />
-      <Child count={count}></Child>
     </>
   );
 }

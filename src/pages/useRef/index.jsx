@@ -10,6 +10,7 @@ function UseRef() {
   const lastCount = useRef(count);
 
   useEffect(() => {
+    // 此时lastCount.current的值改变为count，但是页面渲染时取的值不变，即修改useRef变量的current属性时，不会引发组件重新渲染
     lastCount.current = count;
   }, [count]);
 
@@ -25,7 +26,7 @@ function UseRef() {
         获取dom
       </button>
       <p>当前count：{count}</p>
-      <p>之前count：{lastCount.current}</p>
+      <p>当前lastCount：{lastCount.current}</p>
       <button
         onClick={() => {
           setCount(count + 1);
