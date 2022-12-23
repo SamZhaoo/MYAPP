@@ -1,3 +1,3 @@
 export default {
-  '@primary-color': 'green',
+  '@primary-color': '#60a5fa',
 };

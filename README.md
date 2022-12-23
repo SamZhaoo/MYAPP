@@ -104,3 +104,7 @@ declare module '*.tiff'
 **memo**react高阶组件，与useMemo类似，解决只要父组件的状态更新，无论有没有对自组件进行操作，子组件都会进行更新的问题 
 
 **useCallback**性能优化，区别在于useMemo返回的是函数运行的结果，useCallback返回的是函数 
+### 配置型路由
+路由中path就代表vue中路由的name与path结合体，子路由的path要涵盖上级路由path
+组件的props.children代表vue中的router-view，即子路由的展示部分
+路由的wrappers属性适用于权限鉴权，在这个js文件中进行权限逻辑的判断，该属性是个数组，即可进行组合鉴权

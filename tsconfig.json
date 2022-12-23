@@ -2,10 +2,11 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "allowJs": true,
+    "noEmit": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "importHelpers": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "esModuleInterop": true,
     "sourceMap": true,
     "baseUrl": "./",
