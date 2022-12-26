@@ -1,5 +1,5 @@
-import React from 'react';
-import { history } from 'umi';
+import React, { useEffect, useState } from 'react';
+import { history, useLocation } from 'umi';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 
@@ -34,16 +34,28 @@ export default function Menus() {
     console.log('click ', e);
     const urlPath = e.keyPath.reverse().join('');
     history.push(urlPath);
+    setOpenKeys(`${e.keyPath[0]}`);
+    setSelectedKeys(`${e.keyPath[1]}`);
   };
-
+  const [openKeys, setOpenKeys] = useState('/hooks');
+  const [selectedKeys, setSelectedKeys] = useState('/useContext');
+  let location = useLocation();
+  useEffect(() => {
+    const urlArr = location.pathname.split('/');
+    urlArr.shift();
+    setOpenKeys(`/${urlArr[0]}`);
+    setSelectedKeys(`/${urlArr[1]}`);
+  }, []);
   return (
-    <Menu
-      onClick={onClick}
-      style={{ width: 170 }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
+    <>
+      <Menu
+        onClick={onClick}
+        style={{ width: 170 }}
+        openKeys={[openKeys]}
+        selectedKeys={[selectedKeys]}
+        mode="inline"
+        items={items}
+      />
+    </>
   );
 }
