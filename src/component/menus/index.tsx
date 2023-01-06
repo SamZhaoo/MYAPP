@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { history, useLocation } from 'umi';
-import type { MenuProps, SubMenuProps } from 'antd';
+import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -28,20 +28,7 @@ const items: MenuProps['items'] = [
     getItem('useCallback', '/useCallback'),
     getItem('useRef', '/useRef'),
   ]),
-  getItem('Navigation Two', 'sub2', null, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Submenu', 'sub3', null, [
-      getItem('Option 7', '7'),
-      getItem('Option 8', '8'),
-    ]),
-  ]),
-  getItem('Navigation Three', 'sub4', null, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-    getItem('Option 11', '11'),
-    getItem('Option 12', '12'),
-  ]),
+  getItem('practice', '/practice', null, [getItem('mock test', '/mock')]),
 ];
 export default function Menus() {
   const onClick: MenuProps['onClick'] = (e) => {
@@ -51,9 +38,11 @@ export default function Menus() {
     setSelectedKeys(`${e.keyPath[1]}`);
   };
   const onOpenChange = (e: string[]) => {
-    if (e.length > 0) {
+    if (e.length) {
       const keyStr: any = e.pop();
       setOpenKeys(keyStr);
+    } else {
+      setOpenKeys('');
     }
   };
   const [openKeys, setOpenKeys] = useState('/hooks');
