@@ -28,7 +28,7 @@ const items: MenuProps['items'] = [
     getItem('useCallback', '/useCallback'),
     getItem('useRef', '/useRef'),
   ]),
-  getItem('practice', '/practice', null, [getItem('mock test', '/mock')]),
+  getItem('practice', '/practice', null, [getItem('mock', '/mock')]),
 ];
 export default function Menus() {
   const onClick: MenuProps['onClick'] = (e) => {
@@ -45,8 +45,8 @@ export default function Menus() {
       setOpenKeys('');
     }
   };
-  const [openKeys, setOpenKeys] = useState('/hooks');
-  const [selectedKeys, setSelectedKeys] = useState('/useContext');
+  const [openKeys, setOpenKeys] = useState('');
+  const [selectedKeys, setSelectedKeys] = useState('');
   let location = useLocation();
   useEffect(() => {
     const urlArr = location.pathname.split('/');

@@ -5,7 +5,7 @@ export default [
     component: '@/pages/login/index',
   },
   {
-    path: '/hooks',
+    path: '/',
     component: '@/layouts/base-layout/index',
     routes: [
       {
@@ -24,6 +24,16 @@ export default [
           },
           { path: '/hooks/useRef', component: '@/pages/hooks/useRef/index' },
           { path: '/hooks/login/:id', component: '@/pages/login/index' },
+        ],
+      },
+      {
+        path: '/practice',
+        component: '@/layouts/aside-layout/index',
+        routes: [
+          {
+            path: '/practice/mock',
+            component: '@/pages/practice/mock/index',
+          },
         ],
       },
     ],
