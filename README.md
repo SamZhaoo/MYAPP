@@ -108,3 +108,28 @@ declare module '*.tiff'
 路由中path就代表vue中路由的name与path结合体，子路由的path要涵盖上级路由path
 组件的props.children代表vue中的router-view，即子路由的展示部分
 路由的wrappers属性适用于权限鉴权，在这个js文件中进行权限逻辑的判断，该属性是个数组，即可进行组合鉴权
+### 路由跳转参数
+- 编程式跳转
+  1. import { history } from 'umi'
+  2. const 组件的上线文({history})=>{}
+  3. import { useHistory } from 'umi'
+- 声明式跳转
+  1. import {NavLink} from 'umi'
+  2. import {Link} from 'umi'
+- 接收参数
+  1. const 组件上线文解析
+  ```
+    export default function GoodsDetail({
+      location: { search },
+      match: {
+        params: { id }
+      }
+    }){
+      // xxxxxxx
+    }
+  ```
+  如果上下文丢失，可用withRouter包装组件，history, location, match便会在props中
+  2. hooks获取
+  ```
+  import { useLocation, useParams, useRouteMatch }
+  ```

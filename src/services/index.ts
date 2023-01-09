@@ -10,3 +10,10 @@ export async function addCard(params: any): Promise<any> {
     data: params,
   });
 }
+
+export async function createCard(params: any): Promise<any> {
+  return request('/umi/create', {
+    method: 'POST',
+    data: params,
+  });
+}

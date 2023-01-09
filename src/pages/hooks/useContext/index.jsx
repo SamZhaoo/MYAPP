@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Child from './child';
 import CountContext from './useContext';
 import { Button } from 'antd';
-import { queryCard } from '@/services/index';
 
 export default function indexPage() {
   const [count, setCount] = useState(1);
@@ -11,12 +10,6 @@ export default function indexPage() {
   useEffect(() => {
     console.log('xxx');
   }, [count]);
-
-  useEffect(() => {
-    queryCard().then((res) => {
-      console.log('queryCard:', res);
-    });
-  }, []);
 
   return (
     <>
