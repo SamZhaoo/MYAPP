@@ -6,13 +6,12 @@ export default delay(
       b: 2,
     },
     'POST /umi/add': (req, res) => {
-      console.log(req);
       res.end('ok');
     },
     'POST /umi/create': (req, res) => {
-      console.log(req);
+      console.log(req.body);
       res.send({
-        err: 0,
+        err: req.body.name,
         msg: 'success',
       });
     },

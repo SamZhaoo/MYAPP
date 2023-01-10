@@ -133,3 +133,6 @@ declare module '*.tiff'
   ```
   import { useLocation, useParams, useRouteMatch }
   ```
+### 使用UMI的mock功能与mockjs
+在**mock**目录下创建js文件，生成请求对象
+可以使用mockjs有特定语法更方便生成mock数据

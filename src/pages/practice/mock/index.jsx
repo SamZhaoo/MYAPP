@@ -1,6 +1,13 @@
 import { useEffect } from 'react';
-import { queryCard, addCard, createCard } from '@/services/index';
+import {
+  queryCard,
+  addCard,
+  createCard,
+  getListApi,
+  postListApi,
+} from '@/services/index';
 import { Button } from 'antd';
+import styles from './index.less';
 
 const index = () => {
   useEffect(() => {
@@ -18,14 +25,34 @@ const index = () => {
       console.log('createCard:', res);
     });
   };
+  const postList = () => {
+    postListApi({ name: 111 }).then((res) => {
+      console.log('getList:', res);
+    });
+  };
+  const getList = () => {
+    getListApi({ name: 111 }).then((res) => {
+      console.log('getList:', res);
+    });
+  };
   return (
     <>
-      <div>
-        <Button type="primary" onClick={() => add()}>
+      <div className={styles.panel}>
+        <Button className={styles.btn} type="primary" onClick={() => add()}>
           发送add
         </Button>
-        <Button type="primary" onClick={() => create()}>
+        <Button className={styles.btn} type="primary" onClick={() => create()}>
           发送create
+        </Button>
+        <Button
+          className={styles.btn}
+          type="primary"
+          onClick={() => postList()}
+        >
+          发送postList
+        </Button>
+        <Button className={styles.btn} type="primary" onClick={() => getList()}>
+          发送getList
         </Button>
       </div>
     </>
