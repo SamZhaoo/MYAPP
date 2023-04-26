@@ -28,17 +28,25 @@ const items: MenuProps['items'] = [
     getItem('useCallback', '/useCallback'),
     getItem('useRef', '/useRef'),
   ]),
+  getItem('practice', '/practice', null, [getItem('mock', '/mock')]),
 ];
 export default function Menus() {
   const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
     const urlPath = e.keyPath.reverse().join('');
     history.push(urlPath);
     setOpenKeys(`${e.keyPath[0]}`);
     setSelectedKeys(`${e.keyPath[1]}`);
   };
-  const [openKeys, setOpenKeys] = useState('/hooks');
-  const [selectedKeys, setSelectedKeys] = useState('/useContext');
+  const onOpenChange = (e: string[]) => {
+    if (e.length) {
+      const keyStr: any = e.pop();
+      setOpenKeys(keyStr);
+    } else {
+      setOpenKeys('');
+    }
+  };
+  const [openKeys, setOpenKeys] = useState('');
+  const [selectedKeys, setSelectedKeys] = useState('');
   let location = useLocation();
   useEffect(() => {
     const urlArr = location.pathname.split('/');
@@ -50,6 +58,7 @@ export default function Menus() {
     <>
       <Menu
         onClick={onClick}
+        onOpenChange={onOpenChange}
         style={{ width: 170 }}
         openKeys={[openKeys]}
         selectedKeys={[selectedKeys]}

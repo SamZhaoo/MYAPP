@@ -5,22 +5,35 @@ export default [
     component: '@/pages/login/index',
   },
   {
-    path: '/hooks',
+    path: '/',
     component: '@/layouts/base-layout/index',
     routes: [
       {
         path: '/hooks',
         component: '@/layouts/aside-layout/index',
         routes: [
-          { path: '/hooks/useContext', component: '@/pages/useContext/index' },
-          { path: '/hooks/useMemo', component: '@/pages/useMemo/index' },
-          { path: '/hooks/memo', component: '@/pages/memo/index' },
+          {
+            path: '/hooks/useContext',
+            component: '@/pages/hooks/useContext/index',
+          },
+          { path: '/hooks/useMemo', component: '@/pages/hooks/useMemo/index' },
+          { path: '/hooks/memo', component: '@/pages/hooks/memo/index' },
           {
             path: '/hooks/useCallback',
-            component: '@/pages/useCallback/index',
+            component: '@/pages/hooks/useCallback/index',
           },
-          { path: '/hooks/useRef', component: '@/pages/useRef/index' },
+          { path: '/hooks/useRef', component: '@/pages/hooks/useRef/index' },
           { path: '/hooks/login/:id', component: '@/pages/login/index' },
+        ],
+      },
+      {
+        path: '/practice',
+        component: '@/layouts/aside-layout/index',
+        routes: [
+          {
+            path: '/practice/mock',
+            component: '@/pages/practice/mock/index',
+          },
         ],
       },
     ],
