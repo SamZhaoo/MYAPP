@@ -28,7 +28,10 @@ const items: MenuProps['items'] = [
     getItem('useCallback', '/useCallback'),
     getItem('useRef', '/useRef'),
   ]),
-  getItem('practice', '/practice', null, [getItem('mock', '/mock')]),
+  getItem('practice', '/practice', null, [
+    getItem('mock', '/mock'),
+    getItem('greedySnake', '/greedySnake'),
+  ]),
 ];
 export default function Menus() {
   const onClick: MenuProps['onClick'] = (e) => {

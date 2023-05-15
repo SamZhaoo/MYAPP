@@ -34,6 +34,10 @@ export default [
             path: '/practice/mock',
             component: '@/pages/practice/mock/index',
           },
+          {
+            path: '/practice/greedySnake',
+            component: '@/pages/practice/greedySnake/index.tsx',
+          },
         ],
       },
     ],
