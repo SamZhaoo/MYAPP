@@ -42,7 +42,7 @@ export default [
       },
     ],
   },
-  // { path: '/', redirect: '/login' },
+  { path: '/', redirect: '/hooks' },
   { path: '/404', component: '@/pages/404' },
   { component: '@/pages/404' },
 ];
