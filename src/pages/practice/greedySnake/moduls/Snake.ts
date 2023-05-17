@@ -1,24 +1,30 @@
 export class Snake {
   ele: HTMLElement;
-  isHorizontal: boolean;
+  // 身体
+  body: Array<object> = [{}];
   constructor(dom: HTMLElement) {
     this.ele = dom;
-    this.isHorizontal = true;
   }
   get X() {
     return this.ele.offsetLeft;
   }
+  set X(val: number) {
+    if (val < 0 || val > 332) {
+      throw new Error('撞墙了');
+    }
+    this.ele.style.left = val + 'px';
+  }
   get Y() {
     return this.ele.offsetTop;
   }
-  changeBody(horizontal: boolean) {
-    this.isHorizontal = horizontal;
-    this.ele.style.width = this.isHorizontal ? 'auto' : '6px';
+  set Y(val: number) {
+    if (val < 0 || val > 332) {
+      throw new Error('撞墙了');
+    }
+    this.ele.style.top = val + 'px';
   }
-  changePosition() {
-    const left = Math.round(Math.random() * 35) * 10;
-    const top = Math.round(Math.random() * 37) * 10;
-    this.ele.style.left = left + 'px';
-    this.ele.style.top = top + 'px';
+  addBody() {
+    this.body.push({});
   }
+  moveBody() {}
 }

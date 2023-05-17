@@ -10,8 +10,8 @@ export class Food {
     return this.ele.offsetTop;
   }
   changePosition() {
-    const left = Math.round(Math.random() * 35) * 10;
-    const top = Math.round(Math.random() * 37) * 10;
+    const left = Math.round(Math.random() * 84) * 4;
+    const top = Math.round(Math.random() * 84) * 4;
     this.ele.style.left = left + 'px';
     this.ele.style.top = top + 'px';
   }
