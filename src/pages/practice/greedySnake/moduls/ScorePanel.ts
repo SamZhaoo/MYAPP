@@ -7,6 +7,10 @@ export class ScorePanel {
   }
   addScore() {
     this.score++;
-    this.level = Math.floor(this.score / 10) + 1;
+    if (Math.floor(this.score / 10) + 1 > 1) {
+      throw new Error('满级了');
+    } else {
+      this.level = Math.floor(this.score / 10) + 1;
+    }
   }
 }

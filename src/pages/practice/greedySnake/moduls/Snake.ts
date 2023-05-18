@@ -1,9 +1,11 @@
 export class Snake {
   ele: HTMLElement;
+  eleFarther: HTMLElement;
   // 身体
   body: Array<object> = [{}];
   constructor(dom: HTMLElement) {
-    this.ele = dom;
+    this.eleFarther = dom;
+    this.ele = dom.childNodes[0] as HTMLElement;
   }
   get X() {
     return this.ele.offsetLeft;
@@ -26,5 +28,17 @@ export class Snake {
   addBody() {
     this.body.push({});
   }
-  moveBody() {}
+  moveBody() {
+    const list = this.eleFarther.childNodes;
+    // 只有一个方块的时候不处理
+    if (list.length < 2) return;
+
+    for (let i = list.length - 1; i > 0; i--) {
+      const x = (list[i - 1] as HTMLElement).offsetLeft;
+      const y = (list[i - 1] as HTMLElement).offsetTop;
+      const element: HTMLElement = list[i] as HTMLElement;
+      element.style.left = x + 'px';
+      element.style.top = y + 'px';
+    }
+  }
 }

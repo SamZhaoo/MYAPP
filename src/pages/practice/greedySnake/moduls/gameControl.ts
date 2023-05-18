@@ -1,6 +1,14 @@
 import { Food } from './Food';
 import { Snake } from './Snake';
 import { ScorePanel } from './ScorePanel';
+import { notification } from 'antd';
+// 互斥的方向
+enum isRepel {
+  ArrowRight = 'ArrowLeft',
+  ArrowLeft = 'ArrowRight',
+  ArrowUp = 'ArrowDown',
+  ArrowDown = 'ArrowUp',
+}
 export class gameControl {
   food: Food;
   snake: Snake;
@@ -12,13 +20,15 @@ export class gameControl {
     this.snake = new Snake(snakeDom);
     this.scorePanel = new ScorePanel();
     this.init();
+    this.run();
   }
   init() {
     window.addEventListener('keydown', this.onKeyDown.bind(this)); // 添加全局事件
   }
   onKeyDown(o: KeyboardEvent) {
-    this.diretion = o.key;
-    this.run();
+    if (this.diretion !== isRepel[o.key as keyof typeof isRepel]) {
+      this.diretion = o.key;
+    }
   }
   run() {
     let x = this.snake.X;
@@ -40,14 +50,19 @@ export class gameControl {
         break;
     }
     try {
+      this.snake.moveBody();
       this.snake.X = x;
       this.snake.Y = y;
-    } catch (error) {
-      alert(`${error},Game Over!!!`);
+    } catch (error: any) {
       this.isAlive = false;
+      notification.error({
+        message: 'GAME OVER!!!',
+        description: error.message,
+      });
     }
     this.checkEat();
-    // this.isAlive && setTimeout(this.run.bind(this), 300);
+    const speed = 300 - (this.scorePanel.level - 1) * 30;
+    this.isAlive && setTimeout(this.run.bind(this), speed);
   }
   checkEat() {
     const { X: sx, Y: sy } = this.snake;
@@ -55,7 +70,14 @@ export class gameControl {
     if (sx === fx && sy === fy) {
       this.snake.addBody();
       this.food.changePosition();
-      this.scorePanel.addScore();
+      try {
+        this.scorePanel.addScore();
+      } catch (error: any) {
+        notification.success({
+          message: 'congratulations!!!',
+          description: error.message,
+        });
+      }
     }
   }
 }
