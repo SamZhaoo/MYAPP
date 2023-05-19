@@ -9,7 +9,7 @@ enum isRepel {
   ArrowUp = 'ArrowDown',
   ArrowDown = 'ArrowUp',
 }
-export class gameControl {
+export class GameControl {
   food: Food;
   snake: Snake;
   scorePanel: ScorePanel;
@@ -28,6 +28,7 @@ export class gameControl {
   onKeyDown(o: KeyboardEvent) {
     if (this.diretion !== isRepel[o.key as keyof typeof isRepel]) {
       this.diretion = o.key;
+      // this.run();
     }
   }
   run() {

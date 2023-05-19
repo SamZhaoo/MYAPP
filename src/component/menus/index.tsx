@@ -31,6 +31,7 @@ const items: MenuProps['items'] = [
   getItem('practice', '/practice', null, [
     getItem('mock', '/mock'),
     getItem('greedySnake', '/greedySnake'),
+    getItem('hooksSnake', '/hooksSnake'),
   ]),
 ];
 export default function Menus() {

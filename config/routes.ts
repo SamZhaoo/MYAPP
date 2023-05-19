@@ -38,6 +38,10 @@ export default [
             path: '/practice/greedySnake',
             component: '@/pages/practice/greedySnake/index.tsx',
           },
+          {
+            path: '/practice/hooksSnake',
+            component: '@/pages/practice/hooksSnake/index.jsx',
+          },
         ],
       },
     ],
