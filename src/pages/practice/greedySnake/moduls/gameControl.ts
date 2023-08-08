@@ -54,7 +54,7 @@ export class GameControl {
       this.snake.moveBody();
       this.snake.X = x;
       this.snake.Y = y;
-    } catch (error: any) {
+    } catch (error) {
       this.isAlive = false;
       notification.error({
         message: 'GAME OVER!!!',
@@ -73,7 +73,7 @@ export class GameControl {
       this.food.changePosition();
       try {
         this.scorePanel.addScore();
-      } catch (error: any) {
+      } catch (error) {
         notification.success({
           message: 'congratulations!!!',
           description: error.message,

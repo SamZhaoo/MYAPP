@@ -101,9 +101,11 @@ declare module '*.tiff'
 
 **useMemo**性能优化，避免每次渲染都进行计算，仅会在某个依赖项改变时才重新计算值,类似vue的computed 
 
-**memo**react高阶组件，与useMemo类似，解决只要父组件的状态更新，无论有没有对自组件进行操作，子组件都会进行更新的问题 
+**memo** react高阶组件，与useMemo类似，解决只要父组件的状态更新，无论有没有对自组件进行操作，子组件都会进行更新的问题。在子组件中用memo包裹之后，子组件依赖的父组件的数据发生变化，子组件才会更新 
 
-**useCallback**性能优化，区别在于useMemo返回的是函数运行的结果，useCallback返回的是函数 
+**useCallback**性能优化，因为父组件传递的是个函数，函数是引用类型的，所以父子间更新，引用地址也改变，所以即使子组件使用了memo包裹，子组件也更新。通过useCallback进行约束，只有某个依赖改变，才会更新子组件。与useMemo的区别是useMemo的返回值是函数运行的结果，useCallback返回值是函数
+
+**useRef**获取dom或者缓存数据，定义useRef的变量，之后将其绑定在dom标签上，获取变量current属性就能得到该dom以及dom上面的属性；对useRef的变量进行修改，组件不会重新渲染，因此可以缓存数据上一次的值
 ### 配置型路由
 路由中path就代表vue中路由的name与path结合体，子路由的path要涵盖上级路由path
 组件的props.children代表vue中的router-view，即子路由的展示部分

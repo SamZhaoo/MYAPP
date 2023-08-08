@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from 'antd';
 import styles from './index.less';
-import { GameControl } from './moduls/GameControl';
+import { GameControl } from './moduls/gameControl';
 import { Food } from './moduls/Food';
 import { ScorePanel } from './moduls/ScorePanel';
 import { Snake } from './moduls/Snake';

@@ -5,8 +5,14 @@ export default function indexPage() {
 
   const getNumberMemo = useMemo(() => {
     console.log('xxx');
-    return 111;
+    return count * 2;
   }, [count]);
+
+  // const getNumberMemo = () => {
+  //   console.log(111); // 每次都會執行
+  //   return count * 2;
+  // };
+
   return (
     <>
       <h1>index.page</h1>
