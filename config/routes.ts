@@ -23,6 +23,7 @@ export default [
             component: '@/pages/hooks/useCallback/index',
           },
           { path: '/hooks/useRef', component: '@/pages/hooks/useRef/index' },
+          { path: '/hooks/test', component: '@/pages/hooks/test/index' },
           { path: '/hooks/login/:id', component: '@/pages/login/index' },
         ],
       },

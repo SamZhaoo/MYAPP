@@ -97,7 +97,7 @@ declare module '*.tiff'
 
 **useEffect**监听变量的变化，如果useState的变量改变后，执行useEffect的依赖钩子； 
 
-**useContext**作为父子组件的通信，声明`createContext`react组件，在父组件中将传递的值与方法绑定在`createContext`组件`value`属性上，子组件用`useContext`解构赋值即可完成通信 
+**useContext**作为后代组件的通信，声明`createContext`react组件，在父组件中将传递的值与方法绑定在`createContext`组件`value`属性上，后代组件不管隔几代，都可以用`useContext`解构赋值即可完成通信 
 
 **useMemo**性能优化，避免每次渲染都进行计算，仅会在某个依赖项改变时才重新计算值,类似vue的computed 
 

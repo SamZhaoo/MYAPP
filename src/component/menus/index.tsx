@@ -27,6 +27,7 @@ const items: MenuProps['items'] = [
     getItem('memo', '/memo'),
     getItem('useCallback', '/useCallback'),
     getItem('useRef', '/useRef'),
+    getItem('test', '/test'),
   ]),
   getItem('practice', '/practice', null, [
     getItem('mock', '/mock'),
